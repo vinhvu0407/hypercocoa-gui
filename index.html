@@ -18,6 +18,7 @@
     
     
     
+    
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -71,43 +72,44 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="u-align-center u-clearfix u-image u-section-2" id="sec-8e60" data-image-width="150" data-image-height="99">
+      </section>
+    <section class="u-align-center u-clearfix u-image u-section-1" id="sec-8e60" data-image-width="150" data-image-height="99">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h1 class="u-text u-text-body-alt-color u-text-default u-text-1">Key Features</h1>
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-1">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-file-icon u-icon u-icon-1"><img src="images/714390.png" alt=""></span>
-                <h4 class="u-text u-text-default u-text-2">create QR code</h4>
-                <a href="Start.html#carousel_e4a3" data-page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-1">learn more</a>
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-file-icon u-icon u-icon-1"><img src="images/992651.png" alt=""></span>
+                <h4 class="u-text u-text-default u-text-2">
+                  <a href="Start.html#carousel_e4a3" data-page-id="557221882" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">add product</a>
+                </h4>
+                <a href="Start.html#carousel_e4a3" data-page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-2">learn more</a>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span class="u-file-icon u-icon u-icon-2"><img src="images/3126571.png" alt=""></span>
-                <h4 class="u-text u-text-default u-text-3">check QR code</h4>
-                <a href="" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-2">learn more</a>
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span class="u-file-icon u-icon u-icon-2"><img src="images/3096673.png" alt=""></span>
+                <h4 class="u-text u-text-default u-text-3">delete</h4>
+                <a href="Start.html#carousel_5559" data-page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-3">learn more</a>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><span class="u-file-icon u-icon u-icon-3"><img src="images/2257270.png" alt=""></span>
                 <h4 class="u-text u-text-default u-text-4">track product</h4>
-                <a href="Start.html#carousel_44d4" data-page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-3">learn more</a>
+                <a href="Start.html#carousel_44d4" data-page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-4">learn more</a>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-4">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><span class="u-file-icon u-icon u-icon-4"><img src="images/858962.png" alt=""></span>
                 <h4 class="u-text u-text-default u-text-5">get details</h4>
-                <button id= "btn" onclick="cocoaDataPOST();" -page-id="557221882" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-4" >learn more</button>
+                <a href="#" class="u-btn u-button-style u-hover-palette-1-dark-1 u-palette-2-base u-btn-5">learn more</a>
                 <script type="text/javascript">
                   document.getElementById("btn").onclick = cocoaDataPOST;
                   btn.addEventListener("click"), event => {
                     cocoaDataPOST();
                   }
-
-                  var baseurl = "http://localhost:3000/api/v1/CocoaBag";
-
+                  
+                  var baseurl = "http://localhost:1337/hypercocoa/assets";
+                  
                   function cocoaDataPOST(){
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.open("POST",baseurl + "/",true);
@@ -115,11 +117,11 @@
                       if(xmlhttp.readyState ===4 && xmlhttp.status ===200){
                         var cocoaData = JSON.parse(xmlhttp.responseText);
                         var tbltop = `<table>
-                      <tr><th>Id</th><th>weight</th><th>data2</th><th>data3</th></tr>`;
+                      <tr><th>Id</th><th>weight</th><th>asset</th><th>currency</th>th>type</th></tr>`;
                         //main table content, fill from data from the rest call
                         var main ="";
                         for (i = 0; i < cocoaData.length; i++){
-                          main += "<tr><td>"+cocoaData[i].id+"</td><td>"+cocoaData[i].weight+"</td><td>"+cocoaData[i].data2+"</td><td>"+cocoaData[i].data3+"</td></tr>";
+                          main += "<tr><td>"+cocoaData[i].id+"</td><td>"+cocoaData[i].weight+"</td><td>"+cocoaData[i].asset+"</td><td>"+cocoaData[i].currency+"</td></tr>"+cocoaData[i].type+"</td></tr>";
                         }
                         var tblbottom = "</table>";
                         var tbl = tbltop + main + tblbottom;
@@ -129,18 +131,53 @@
                     xmlhttp.send();
                   }
                   
-                
+                  
                   window.onload = function(){
                     cocoaDataPOST();
                   }
-                </script>
+                  </script>             
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-image u-section-3" id="carousel_e4a3" data-image-width="1280" data-image-height="853">
+    <section class="u-align-center u-clearfix u-image u-section-3" id="carousel_5559" data-image-width="150" data-image-height="99">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-body-alt-color u-text-1"> delete a ​product</h2>
+        <h3 class="u-custom-font u-font-lato u-text u-text-body-alt-color u-text-2"> please enter the product key</h3>
+        <div class="u-form u-form-1">
+          <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-17 u-inner-form" style="padding: 10px" source="email" name="Key " redirect="true" redirect-address="http://localhost:3000/hypercocoa/asset/{key}">
+            <div class="u-form-group u-form-group-1">
+              <label for="key-2555" class="u-form-control-hidden u-label u-label-1" wfd-invisible="true">Key</label>
+              <input type="text" placeholder="enter key" id="key-2555" name="key" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-white" required="required">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit">
+              <a onclick="cocoaDataGET(keytext)" class="u-active-white u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-radius-50 u-white u-btn-1">delete</a>
+            <!--  <a href="requests.js" class="u-active-white u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-radius-50 u-white u-btn-1">track</a> -->
+
+              <!--CALL--> 
+              <meta charset="UTF-8"> 
+              <input type="text/javascript" value=`${key}` class="u-form-control-hidden" wfd-invisible="true">
+              <script type = "text/javascript"> 
+                const keytext = document.getElementById(`keytext`).value;
+
+                function cocoaDataDELETE(keytext){  
+                  const element = document.querySelector('#delete-request .status');
+                  fetch(`http://localhost:3000/hypercocoa/asset/${keytext}`, { method: 'DELETE' })
+                      .then(() => element.innerHTML = 'Delete successful');
+                }
+              
+              </script> <!-- CALL -->              <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
+            </div>
+            <div class="u-form-send-message u-form-send-success" wfd-invisible="true">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true">
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-image u-section-4" id="carousel_e4a3" data-image-width="1280" data-image-height="853">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
@@ -164,23 +201,29 @@
                       <div class="u-form u-form-1">
                         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
                           <div class="u-form-group">
-                            <label for="name-c21e" class="u-label">Weight</label>
-                            <input type="text" placeholder="Enter bag weight" id="name-c21e" name="weight" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                            <label for="name-c21e" class="u-label">weight</label>
+                            <input type="text" id="name-c21e" name="weight" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
                           </div>
-                          <div class="u-form-checkbox u-form-group u-form-group-2">
-                            <input type="checkbox" id="checkbox-cfdf" name="produced" value="On">
-                            <label for="checkbox-cfdf" class="u-label">Produced</label>
+                          <div class="u-form-group u-form-group-2">
+                            <label for="text-ec25" class="u-label">asset type</label>
+                            <input type="text" placeholder="" id="text-ec25" name="assettype" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
                           </div>
-                          <div class="u-form-checkbox u-form-group u-form-group-3">
-                            <input type="checkbox" id="checkbox-f304" name="state2" value="On">
-                            <label for="checkbox-f304" class="u-label">state2</label>
+                          <div class="u-form-group u-form-select u-form-group-3">
+                            <label for="select-c491" class="u-label">currency</label>
+                            <div class="u-form-select-wrapper">
+                              <select id="select-c491" name="currency" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                              </select>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                            </div>
                           </div>
-                          <div class="u-form-checkbox u-form-group u-form-group-4">
-                            <input type="checkbox" id="checkbox-b8d1" name="state3" value="On">
-                            <label for="checkbox-b8d1" class="u-label">state3</label>
+                          <div class="u-form-group u-form-group-4">
+                            <label for="text-9045" class="u-label">type</label>
+                            <input type="text" placeholder="" id="text-9045" name="type" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
                           </div>
                           <div class="u-align-left u-form-group u-form-submit">
-                            <a href="#" class="u-btn u-btn-submit u-button-style">send</a>
+                            <a href="#" class="u-btn u-btn-submit u-button-style">absenden</a>
                             <input type="submit" value="submit" class="u-form-control-hidden">
                           </div>
                           <div class="u-form-send-message u-form-send-success"> Vielen Dank! Ihre Nachricht wurde gesendet. </div>
@@ -206,19 +249,21 @@
            <!-- <form action="#" method="GET" class="u-clearfix u-form-horizontal u-form-spacing-17 u-inner-form" style="padding: 10px" source="key" name="Key" redirect="true" redirect-address="http://localhost:3000/api/v1/CocoaBag/{key}"> -->
             <div class="u-form-group u-form-group-1">
               <label for="key" class="u-form-control-hidden u-label u-label-1" wfd-invisible="true">Key</label>
-              <input onclick="cocoaDataGET()" type="text" placeholder="enter key" id="keytext" name="keytext" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-white" required="required"> 
+              <input onclick="cocoaDataGET()" type="text" placeholder="enter key" id="keytext2" name="keytext" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-white" required="required"> 
             </div>
             <div class="u-align-left u-form-group u-form-submit">
             
               <a onclick="cocoaDataGET(keytext)" class="u-active-white u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-radius-50 u-white u-btn-1">track</a>
             <!--  <a href="requests.js" class="u-active-white u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-radius-50 u-white u-btn-1">track</a> -->
 
-              <!--CALL-->   <meta charset="UTF-8"> 
+              <!--CALL--> 
+              <meta charset="UTF-8"> 
+              <input type="text/javascript" value=`${keytext2}` class="u-form-control-hidden" wfd-invisible="true">
               <script type = "text/javascript"> 
-                const msg = document.getElementById(`keytext`).value;
+                const keytext2 = document.getElementById(`keytext2`).value;
 
-                function cocoaDataGET(msg){
-                  fetch(`http://localhost:3000/api/v1/CocoaBag/${msg}`)
+                function cocoaDataGET(keytext){
+                  fetch(`http://localhost:3000/hypercocoa/asset/${keytext2}`)
                   .then(response => {
                     if(!response.ok) {
                       throw new Error(`Request failed with status ${response.status}`)
@@ -233,7 +278,6 @@
                 }
               
               </script> <!-- CALL -->
-              <input type="text/javascript" value=`${key}` class="u-form-control-hidden" wfd-invisible="true">
             </div>
             <div class="u-form-send-message u-form-send-success" wfd-invisible="true">Thank you! Your message has been sent.</div>
             <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>
@@ -248,14 +292,14 @@
         <p class="u-small-text u-text u-text-variant u-text-1">Impressum</p>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href=" " target="_blank">
-        <span> </span>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Templates</span>
       </a>
       <p class="u-text">
-        <span> </span>
+        <span>created with</span>
       </p>
       <a class="u-link" href="" target="_blank">
-        <span> </span>
+        <span>Website Builder Software</span>
       </a>. 
     </section>
   </body>
